@@ -374,11 +374,15 @@ public class MaterialCamera {
     }
 
     public void start(int requestCode) {
+      start(getIntent(), requestCode);
+    }
+
+    public void start(Intent intent, int requestCode) {
         if (mIsFragment && mSupportFragment != null)
-            mSupportFragment.startActivityForResult(getIntent(), requestCode);
+            mSupportFragment.startActivityForResult(intent, requestCode);
         else if (mIsFragment && mAppFragment != null)
-            mAppFragment.startActivityForResult(getIntent(), requestCode);
+            mAppFragment.startActivityForResult(intent, requestCode);
         else
-            mActivityContext.startActivityForResult(getIntent(), requestCode);
+            mActivityContext.startActivityForResult(intent, requestCode);
     }
 }
